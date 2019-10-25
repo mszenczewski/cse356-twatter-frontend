@@ -33,7 +33,7 @@ export class AddUserScreen extends Component {
     const data = {
       username: this.state.username,
       password: this.state.password,
-      email: this.state.password
+      email: this.state.email
     };
 
     axios
