@@ -48,7 +48,7 @@ export class VerifyScreen extends Component {
   render() {
     return (
       <div>
-        <h1>Verify</h1>
+        <h2>Verify</h2>
         <form onSubmit={this.handleVerifySubmission}>
           <div>
             <label htmlFor="emailInput">Email: </label>

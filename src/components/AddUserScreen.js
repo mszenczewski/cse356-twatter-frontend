@@ -56,7 +56,7 @@ export class AddUserScreen extends Component {
   render() {
     return (
       <div>
-        <h1>Add User</h1>
+        <h2>Add User</h2>
         <form onSubmit={this.handleAddUserSubmission}>
           <div>
             <label htmlFor="usernameInput">Username: </label>
