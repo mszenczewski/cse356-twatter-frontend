@@ -19,7 +19,21 @@
 }
 
 .top_button {
-  padding: 10px;
+  margin: 10px;
+}
+
+#timestamp_box {
+  float: left; 
+  width: 100%
+}
+
+#timestamp {
+  float: left; 
+}
+
+#copy_timestamp_button {
+  margin-top: 20px;
+  margin-left: 10px;
 }
 
 @keyframes App-logo-spin {

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {CopyToClipboard} from 'react-copy-to-clipboard';
 import axios from 'axios';
 
 export default class SearchScreen extends Component {
@@ -6,7 +7,7 @@ export default class SearchScreen extends Component {
     super(props);
 
     let d = new Date();
-    let t = d.getTime() / 1000; 
+    let t = Math.floor(d.getTime() / 1000); 
 
     this.state = {
       current_timestamp: t,
@@ -15,6 +16,20 @@ export default class SearchScreen extends Component {
       results_header: '',
       results: ''
     }
+  }
+
+  tick() {
+    this.setState(prevState => ({
+      current_timestamp: prevState.current_timestamp + 1
+    }));
+  }
+
+  componentDidMount() {
+    this.interval = setInterval(() => this.tick(), 1000);
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.interval);
   }
 
   handleTimestampChange = e => {
@@ -74,7 +89,12 @@ export default class SearchScreen extends Component {
     return (
       <div>
         <h2>Search</h2>
-        <h5>Current Timestamp: {this.state.current_timestamp}</h5>
+        <div id="timestamp_box">        
+          <h3 id="timestamp">Current Timestamp: {this.state.current_timestamp}</h3>
+          <CopyToClipboard text={this.state.current_timestamp}>
+              <button id="copy_timestamp_button" className="copy-clipboard">Copy</button>
+          </CopyToClipboard>
+        </div>
         <form onSubmit={this.submit}>
           <div>
             <label htmlFor="timestampInput">Timestamp: </label>
