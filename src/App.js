@@ -7,6 +7,7 @@ import VerifyScreen from './components/VerifyScreen'
 import AddUserScreen from './components/AddUserScreen'
 import AddItemScreen from './components/AddItemScreen'
 import GetItemScreen from './components/GetItemScreen'
+import SearchScreen from './components/SearchScreen'
 
 class App extends Component {
   render() {
@@ -19,6 +20,7 @@ class App extends Component {
         <LogoutScreen />
         <AddItemScreen />
         <GetItemScreen />
+        <SearchScreen />
       </div>
     );    
   }
