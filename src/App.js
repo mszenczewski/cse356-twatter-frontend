@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Route, Switch, Link } from 'react-router-dom';
 import './App.css';
 
+import HomeScreen from './components/HomeScreen'
 import LoginScreen from './components/LoginScreen'
-import LogoutScreen from './components/LogoutScreen';
+import LogoutScreen from './components/LogoutScreen'
 import VerifyScreen from './components/VerifyScreen'
 import AddUserScreen from './components/AddUserScreen'
 import AddItemScreen from './components/AddItemScreen'
@@ -16,14 +17,23 @@ export default class App extends Component {
       <BrowserRouter>
         <div>
           <h1>Twatter</h1>
+          <div>
+            <Link className='top_button' to="/twatter/login">LOG IN</Link>
+            <Link className='top_button' to="/twatter/logout">LOG OUT</Link>
+            <Link className='top_button' to="/twatter/adduser">ADD USER</Link>
+            <Link className='top_button' to="/twatter/additem">ADD ITEM</Link>
+            <Link className='top_button' to="/twatter/getitem">GET ITEM</Link>
+            <Link className='top_button' to="/twatter/search">SEARCH</Link>
+          </div>
           <Switch>
-            <Route exact path="/twatter/" component={LoginScreen} />
             <Route path="/twatter/adduser" component={AddUserScreen} />
             <Route path="/twatter/verify" component={VerifyScreen} />
+            <Route path="/twatter/login" component={LoginScreen} />
             <Route path="/twatter/logout" component={LogoutScreen} />
             <Route path="/twatter/additem" component={AddItemScreen} />
             <Route path="/twatter/getitem" component={GetItemScreen} />
             <Route path="/twatter/search" component={SearchScreen} />
+            <Route component={HomeScreen} />
           </Switch>
         </div>
       </BrowserRouter>
