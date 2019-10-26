@@ -27,7 +27,7 @@ export class AddUserScreen extends Component {
     });
   };
 
-  handleAddUserSubmission = e => {
+  submit = e => {
     e.preventDefault();
 
     const json = {
@@ -57,7 +57,7 @@ export class AddUserScreen extends Component {
     return (
       <div>
         <h2>Add User</h2>
-        <form onSubmit={this.handleAddUserSubmission}>
+        <form onSubmit={this.submit}>
           <div>
             <label htmlFor="usernameInput">Username: </label>
             <input

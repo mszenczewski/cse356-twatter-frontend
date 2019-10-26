@@ -13,7 +13,7 @@ export class GetItemScreen extends Component {
     });
   };
 
-  handleGetItemSubmission = e => {
+  submit = e => {
     e.preventDefault();
 
     axios
@@ -37,7 +37,7 @@ export class GetItemScreen extends Component {
     return (
       <div>
         <h2>Get Item</h2>
-        <form onSubmit={this.handleGetItemSubmission}>
+        <form onSubmit={this.submit}>
           <div>
             <label htmlFor="idInput">Content:</label>
             <input

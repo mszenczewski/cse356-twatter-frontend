@@ -6,7 +6,7 @@ export class LogoutScreen extends Component {
     response: ''
   };
 
-  handleLogoutSubmission = e => {
+  submit = e => {
     e.preventDefault();
 
     axios
@@ -29,7 +29,7 @@ export class LogoutScreen extends Component {
     return (
       <div>
         <h2>Logout</h2>
-        <form onSubmit={this.handleLogoutSubmission}>
+        <form onSubmit={this.submit}>
           <button>Logout</button>
         </form>
         <h3>{this.state.response}</h3>

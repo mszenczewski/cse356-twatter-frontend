@@ -20,7 +20,7 @@ export class LoginScreen extends Component {
     });
   };
 
-  handleLoginSubmission = e => {
+  submit = e => {
     e.preventDefault();
 
     const json = {
@@ -48,7 +48,7 @@ export class LoginScreen extends Component {
     return (
       <div>
         <h2>Login</h2>
-        <form onSubmit={this.handleLoginSubmission}>
+        <form onSubmit={this.submit}>
           <div>
             <label htmlFor="usernameInput">Username: </label>
             <input

@@ -29,7 +29,7 @@ export class SearchScreen extends Component {
     });
   };
 
-  handleSearchSubmission = e => {
+  submit = e => {
     e.preventDefault();
 
     const json = {};
@@ -75,7 +75,7 @@ export class SearchScreen extends Component {
       <div>
         <h2>Search</h2>
         <h5>Current Timestamp: {this.state.current_timestamp}</h5>
-        <form onSubmit={this.handleSearchSubmission}>
+        <form onSubmit={this.submit}>
           <div>
             <label htmlFor="timestampInput">Timestamp: </label>
             <input

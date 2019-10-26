@@ -20,7 +20,7 @@ export class VerifyScreen extends Component {
     });
   };
 
-  handleVerifySubmission = e => {
+  submit = e => {
     e.preventDefault();
 
     const json = {
@@ -49,7 +49,7 @@ export class VerifyScreen extends Component {
     return (
       <div>
         <h2>Verify</h2>
-        <form onSubmit={this.handleVerifySubmission}>
+        <form onSubmit={this.submit}>
           <div>
             <label htmlFor="emailInput">Email: </label>
             <input

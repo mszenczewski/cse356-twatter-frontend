@@ -20,7 +20,7 @@ export class AddItemScreen extends Component {
     });
   };
 
-  handleAddItemSubmission = e => {
+  submit = e => {
     e.preventDefault();
 
     const json = {
@@ -52,7 +52,7 @@ export class AddItemScreen extends Component {
     return (
       <div>
         <h2>Add Item</h2>
-        <form onSubmit={this.handleAddItemSubmission}>
+        <form onSubmit={this.submit}>
           <div>
             <label htmlFor="contentInput">Content:</label>
             <input
