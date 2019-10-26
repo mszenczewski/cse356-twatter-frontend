@@ -8,13 +8,13 @@ export default class LoginScreen extends Component {
     response: ''
   };
 
-  handleUsernameChange = e => {
+  username_change = e => {
     this.setState({
       username: e.target.value
     });
   };
 
-  handlePasswordChange = e => {
+  password_change = e => {
     this.setState({
       password: e.target.value
     });
@@ -46,14 +46,14 @@ export default class LoginScreen extends Component {
 
   render() {
     return (
-      <div>
+      <div class='content_box'>
         <h2>Login</h2>
         <form onSubmit={this.submit}>
           <div>
             <label htmlFor="usernameInput">Username: </label>
             <input
               id="usernameInput"
-              onChange={this.handleUsernameChange}
+              onChange={this.username_change}
               type="text"
               value={this.state.username}
             />
@@ -62,14 +62,14 @@ export default class LoginScreen extends Component {
             <label htmlFor="passwordInput">Password: </label>
             <input
               id="passwordInput"
-              onChange={this.handlePasswordChange}
+              onChange={this.password_change}
               type="password"
               value={this.state.password}
             />
           </div>
           <button>Submit</button>
         </form>
-        <h3>{this.state.response}</h3>
+        <h3 className='response'>{this.state.response}</h3>
       </div>
     );
   }

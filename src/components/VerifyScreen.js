@@ -8,13 +8,13 @@ export default class VerifyScreen extends Component {
     response: ''
   };
 
-  handleEmailChange = e => {
+  email_change = e => {
     this.setState({
       email: e.target.value
     });
   };
 
-  handleKeyChange = e => {
+  key_change = e => {
     this.setState({
       key: e.target.value
     });
@@ -47,14 +47,14 @@ export default class VerifyScreen extends Component {
 
   render() {
     return (
-      <div>
+      <div class='content_box'>
         <h2>Verify</h2>
         <form onSubmit={this.submit}>
           <div>
             <label htmlFor="emailInput">Email: </label>
             <input
               id="emailInput"
-              onChange={this.handleEmailChange}
+              onChange={this.email_change}
               type="email"
               value={this.state.email}
             />
@@ -63,14 +63,14 @@ export default class VerifyScreen extends Component {
             <label htmlFor="keyInput">Key: </label>
             <input
               id="keyInput"
-              onChange={this.handleKeyChange}
+              onChange={this.key_change}
               type="text"
               value={this.state.key}
             />
           </div>
           <button>Submit</button>
         </form>
-        <h3>{this.state.response}</h3>
+        <h3 className='response'>{this.state.response}</h3>
       </div>
     );
   }

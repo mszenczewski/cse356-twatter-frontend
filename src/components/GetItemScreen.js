@@ -7,7 +7,7 @@ export default class GetItemScreen extends Component {
     response: ''
   };
 
-  handleIdChange = e => {
+  id_change = e => {
     this.setState({
       id: e.target.value
     });
@@ -35,21 +35,21 @@ export default class GetItemScreen extends Component {
 
   render() {
     return (
-      <div>
+      <div class='content_box'>
         <h2>Get Item</h2>
         <form onSubmit={this.submit}>
-          <div>
-            <label htmlFor="idInput">ID:</label>
-            <input
-              id="id"
-              onChange={this.handleIdChange}
-              type="text"
-              value={this.state.id}
-              />
-          </div>
+        <div>
+          <label htmlFor="idInput">ID:</label>
+          <input
+            id="id"
+            onChange={this.id_change}
+            type="text"
+            value={this.state.id}
+            />
+        </div>
         <button>Submit</button>
         </form>
-        <h3>{this.state.response}</h3>
+        <h3 className='response'>{this.state.response}</h3>
       </div>
     );
   }

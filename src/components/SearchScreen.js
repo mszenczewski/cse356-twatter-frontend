@@ -32,13 +32,13 @@ export default class SearchScreen extends Component {
     clearInterval(this.interval);
   }
 
-  handleTimestampChange = e => {
+  timestamp_change = e => {
     this.setState({
       timestamp: e.target.value
     });
   };
 
-  handleLimitChange = e => {
+  limit_change = e => {
     this.setState({
       limit: e.target.value
     });
@@ -87,7 +87,7 @@ export default class SearchScreen extends Component {
 
   render() {
     return (
-      <div>
+      <div class='content_box'>
         <h2>Search</h2>
         <div id="timestamp_box">        
           <h3 id="timestamp">Current Timestamp: {this.state.current_timestamp}</h3>
@@ -100,7 +100,7 @@ export default class SearchScreen extends Component {
             <label htmlFor="timestampInput">Timestamp: </label>
             <input
               id="timestampInput"
-              onChange={this.handleTimestampChange}
+              onChange={this.timestamp_change}
               type="text"
               value={this.state.timestamp}
             />
@@ -109,7 +109,7 @@ export default class SearchScreen extends Component {
             <label htmlFor="limitInput">Limit: </label>
             <input
               id="limitInput"
-              onChange={this.handleLimitChange}
+              onChange={this.limit_change}
               type="text"
               value={this.state.limit}
             />
@@ -117,9 +117,9 @@ export default class SearchScreen extends Component {
           <button>Submit</button>
         </form>
         <h3>{this.state.results_header}</h3>
-        <div>
-          {this.state.results.split("\n").map((i,key) => {
-            return <div key={key}>{i}</div>;
+        <div id='results'>
+          {this.state.results.split('\n').map((i,key) => {
+            return <div className='results_item' key={key}>{i}</div>;
           })}
         </div>
       </div>

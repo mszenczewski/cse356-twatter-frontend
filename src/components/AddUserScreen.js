@@ -9,19 +9,19 @@ export default class AddUserScreen extends Component {
     response: ''
   };
 
-  handleUsernameChange = e => {
+  username_change = e => {
     this.setState({
       username: e.target.value
     });
   };
 
-  handlePasswordChange = e => {
+  password_change = e => {
     this.setState({
       password: e.target.value
     });
   };
 
-  handleEmailChange = e => {
+  email_change = e => {
     this.setState({
       email: e.target.value
     });
@@ -55,14 +55,14 @@ export default class AddUserScreen extends Component {
 
   render() {
     return (
-      <div>
+      <div class='content_box'>
         <h2>Add User</h2>
         <form onSubmit={this.submit}>
           <div>
             <label htmlFor="usernameInput">Username: </label>
             <input
               id="usernameInput"
-              onChange={this.handleUsernameChange}
+              onChange={this.username_change}
               type="text"
               value={this.state.username}
             />
@@ -71,7 +71,7 @@ export default class AddUserScreen extends Component {
             <label htmlFor="passwordInput">Password: </label>
             <input
               id="passwordInput"
-              onChange={this.handlePasswordChange}
+              onChange={this.password_change}
               type="password"
               value={this.state.password}
             />
@@ -80,14 +80,14 @@ export default class AddUserScreen extends Component {
             <label htmlFor="emailInput">Email: </label>
             <input
               id="emailInput"
-              onChange={this.handleEmailChange}
+              onChange={this.email_change}
               type="email"
               value={this.state.email}
             />
           </div>
           <button>Submit</button>
         </form>
-        <h3>{this.state.response}</h3>
+        <h3 className='response'>{this.state.response}</h3>
       </div>
     );
   }

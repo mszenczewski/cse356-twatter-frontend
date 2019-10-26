@@ -1,42 +1,124 @@
-.App {
+:root {
+  --main:    rgb(95, 188, 228); 
+  --secondary:    rgb(34, 143, 190); 
+  --accent:    rgb(28, 130, 173); 
+  --pale:    rgb(218, 244, 255); 
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+    background-color: white;
+}
+
+.navbar_button {
+  padding: 10px;
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+  text-decoration: none;
+  text-shadow: 2px 2px var(--secondary);
+}
+
+.navbar_button:hover {
+  background-color: var(--accent);
+}
+
+#navbar {
+  padding-top: 10px;
+  padding-bottom: 10px;  
+  width: 80%;
+  left: 10%;
+  display: block;
+  position: relative;
+  background-color: var(--main);
   text-align: center;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+#banner {
+  width: 80%;
+  left: 10%;
+  display: block;
+  position: relative;
+  background-color: var(--main);
 }
 
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
+#banner > h1 {
   color: white;
+  font-size: 48px;
+  font-weight: bold;
+  padding-bottom: 20px;
+  padding-top: 20px;
+  text-align: center;
+  text-shadow: 3px 3px var(--secondary);
 }
 
-.App-intro {
-  font-size: large;
+h2, h3 {
+  text-align: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 
-.top_button {
-  margin: 10px;
+.content_box {
+  width: 80%;
+  position: relative;
+  left: 10%;
+  padding-bottom: 100%;
+  background-color: var(--pale);
+}
+
+form {
+  position: relative;
+  left: 25%;
+  width: 50%;
+}
+
+.response {
+}
+
+label {
+  display: inline-block;
+  padding-bottom: 10px;
+  width: 15%;
+}
+
+input {
+  width: 80%;
+}
+
+button:not(#copy_timestamp_button) {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10px;
+  font-size: 24px;
 }
 
 #timestamp_box {
-  float: left; 
-  width: 100%
+  position: relative;
+  width: 33%;
+  left: 33%;
 }
 
-#timestamp {
-  float: left; 
+#results {
+  position: absolute;
+  left: 25%;
+  width: 50%;
+  border: 2px solid var(--accent);
+  border-radius: 12px;
+  background-color:white;
+}
+
+.results_item {
+  text-align: left;
+  padding: 10px 0 0 20px;
 }
 
 #copy_timestamp_button {
-  margin-top: 20px;
-  margin-left: 10px;
-}
-
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
+  position: absolute;
+  left: 95%;
+  top: 40%;
+} 

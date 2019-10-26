@@ -8,13 +8,13 @@ export default class AddItemScreen extends Component {
     response: ''
   };
 
-  handleContentChange = e => {
+  content_change = e => {
     this.setState({
       content: e.target.value
     });
   };
 
-  handleChildTypeChange = e => {
+  childType_change = e => {
     this.setState({
       childType: e.target.value
     });
@@ -50,23 +50,23 @@ export default class AddItemScreen extends Component {
 
   render() {
     return (
-      <div>
+      <div class='content_box'>
         <h2>Add Item</h2>
         <form onSubmit={this.submit}>
           <div>
-            <label htmlFor="contentInput">Content:</label>
+            <label>Content:</label>
             <input
               id="contentInput"
-              onChange={this.handleContentChange}
+              onChange={this.content_change}
               type="text"
               value={this.state.content}
               />
           </div>
           <div>
-            <label htmlFor="typeList">Type:</label>
+            <label>Type:</label>
             <select 
               id="typeList" 
-              onChange={this.handleChildTypeChange}
+              onChange={this.childType_change}
               value={this.state.childType}
               >
                 <option value="none"></option>
@@ -76,7 +76,7 @@ export default class AddItemScreen extends Component {
           </div>        
         <button>Submit</button>
         </form>
-        <h3>{this.state.response}</h3>
+        <h3 className='response'>{this.state.response}</h3>
       </div>
     );
   }
