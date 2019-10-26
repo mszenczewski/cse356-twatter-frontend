@@ -18,12 +18,13 @@ export default class App extends Component {
         <div>
           <h1>Twatter</h1>
           <div>
-            <Link className='top_button' to="/twatter/login">LOG IN</Link>
-            <Link className='top_button' to="/twatter/logout">LOG OUT</Link>
             <Link className='top_button' to="/twatter/adduser">ADD USER</Link>
+            <Link className='top_button' to="/twatter/verify">VERIFY</Link>
+            <Link className='top_button' to="/twatter/login">LOG IN</Link>
             <Link className='top_button' to="/twatter/additem">ADD ITEM</Link>
             <Link className='top_button' to="/twatter/getitem">GET ITEM</Link>
             <Link className='top_button' to="/twatter/search">SEARCH</Link>
+            <Link className='top_button' to="/twatter/logout">LOG OUT</Link>
           </div>
           <Switch>
             <Route path="/twatter/adduser" component={AddUserScreen} />

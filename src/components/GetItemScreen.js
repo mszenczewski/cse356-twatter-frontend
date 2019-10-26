@@ -39,7 +39,7 @@ export default class GetItemScreen extends Component {
         <h2>Get Item</h2>
         <form onSubmit={this.submit}>
           <div>
-            <label htmlFor="idInput">Content:</label>
+            <label htmlFor="idInput">ID:</label>
             <input
               id="id"
               onChange={this.handleIdChange}
