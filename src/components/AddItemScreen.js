@@ -37,7 +37,7 @@ export class AddItemScreen extends Component {
         console.log('ADDITEM RESPONSE: ' + JSON.stringify(res.data, null, 2));
 
         if (res.data.status === 'OK') {
-          this.setState({response: 'Succesfully added item!'});
+          this.setState({response: 'Succesfully added item! ID: ' + res.data.id});
         } else {
           this.setState({response: res.data.error}); 
         }
