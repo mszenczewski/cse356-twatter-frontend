@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
-export class VerifyScreen extends Component {
+export default class VerifyScreen extends Component {
   state = {
     email: '',
     key: '',
@@ -75,5 +75,3 @@ export class VerifyScreen extends Component {
     );
   }
 }
-
-export default VerifyScreen;

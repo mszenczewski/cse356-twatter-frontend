@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 
-export class LoginScreen extends Component {
+export default class LoginScreen extends Component {
   state = {
     username: '',
     password: '',
@@ -70,9 +71,8 @@ export class LoginScreen extends Component {
           <button>Submit</button>
         </form>
         <h3>{this.state.response}</h3>
+        <Link to="/twatter/adduser">New user?</Link>
       </div>
     );
   }
 }
-
-export default LoginScreen;

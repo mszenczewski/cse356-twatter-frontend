@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
-export class LogoutScreen extends Component {
+export default class LogoutScreen extends Component {
   state = {
     response: ''
   };
@@ -37,5 +37,3 @@ export class LogoutScreen extends Component {
     );
   }
 }
-
-export default LogoutScreen;

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
-export class GetItemScreen extends Component {
+export default class GetItemScreen extends Component {
   state = {
     id: '',
     response: ''
@@ -54,5 +54,3 @@ export class GetItemScreen extends Component {
     );
   }
 }
-
-export default GetItemScreen;

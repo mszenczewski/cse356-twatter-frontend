@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
-export class AddItemScreen extends Component {
+export default class AddItemScreen extends Component {
   state = {
     content: '',
     childType: 'none',
@@ -81,5 +81,3 @@ export class AddItemScreen extends Component {
     );
   }
 }
-
-export default AddItemScreen;

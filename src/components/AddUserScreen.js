@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
-export class AddUserScreen extends Component {
+export default class AddUserScreen extends Component {
   state = {
     username: '',
     password: '',
@@ -92,5 +92,3 @@ export class AddUserScreen extends Component {
     );
   }
 }
-
-export default AddUserScreen;

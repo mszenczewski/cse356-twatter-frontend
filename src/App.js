@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import './App.css';
 
 import LoginScreen from './components/LoginScreen'
@@ -9,21 +10,25 @@ import AddItemScreen from './components/AddItemScreen'
 import GetItemScreen from './components/GetItemScreen'
 import SearchScreen from './components/SearchScreen'
 
-class App extends Component {
+export default class App extends Component {
   render() {
     return (
-      <div>
-        <h1>Twatter</h1>
-        <AddUserScreen />
-        <VerifyScreen />
-        <LoginScreen />
-        <LogoutScreen />
-        <AddItemScreen />
-        <GetItemScreen />
-        <SearchScreen />
-      </div>
-    );    
+      <BrowserRouter>
+        <div>
+          <h1>Twatter</h1>
+          <Switch>
+            <Route exact path="/twatter/" component={LoginScreen} />
+            <Route path="/twatter/adduser" component={AddUserScreen} />
+            <Route path="/twatter/verify" component={VerifyScreen} />
+            <Route path="/twatter/logout" component={LogoutScreen} />
+            <Route path="/twatter/additem" component={AddItemScreen} />
+            <Route path="/twatter/getitem" component={GetItemScreen} />
+            <Route path="/twatter/search" component={SearchScreen} />
+          </Switch>
+        </div>
+      </BrowserRouter>
+    );
   }
 }
 
-export default App;
+// export default App;
