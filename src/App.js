@@ -2,10 +2,11 @@ import React, { Component } from 'react';
 import './App.css';
 
 import LoginScreen from './components/LoginScreen'
-import AddUserScreen from './components/AddUserScreen'
-import VerifyScreen from './components/VerifyScreen'
-import AddItemScreen from './components/AddItemScreen'
 import LogoutScreen from './components/LogoutScreen';
+import VerifyScreen from './components/VerifyScreen'
+import AddUserScreen from './components/AddUserScreen'
+import AddItemScreen from './components/AddItemScreen'
+import GetItemScreen from './components/GetItemScreen'
 
 class App extends Component {
   render() {
@@ -17,6 +18,7 @@ class App extends Component {
         <LoginScreen />
         <LogoutScreen />
         <AddItemScreen />
+        <GetItemScreen />
       </div>
     );    
   }
