@@ -64,7 +64,7 @@ export class VerifyScreen extends Component {
             <input
               id="keyInput"
               onChange={this.handleKeyChange}
-              type="key"
+              type="text"
               value={this.state.key}
             />
           </div>

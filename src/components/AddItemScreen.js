@@ -27,7 +27,7 @@ export class AddItemScreen extends Component {
       content: this.state.content,
     };
 
-    if (this.state.childType != 'none') {
+    if (this.state.childType !== 'none') {
       json.childType = this.state.childType;
     }
 
