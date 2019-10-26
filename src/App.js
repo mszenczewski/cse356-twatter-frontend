@@ -4,6 +4,8 @@ import './App.css';
 import LoginScreen from './components/LoginScreen'
 import AddUserScreen from './components/AddUserScreen'
 import VerifyScreen from './components/VerifyScreen'
+import AddItemScreen from './components/AddItemScreen'
+import LogoutScreen from './components/LogoutScreen';
 
 class App extends Component {
   render() {
@@ -13,6 +15,8 @@ class App extends Component {
         <AddUserScreen />
         <VerifyScreen />
         <LoginScreen />
+        <LogoutScreen />
+        <AddItemScreen />
       </div>
     );    
   }
