@@ -21,6 +21,8 @@ body {
   font-weight: bold;
   text-decoration: none;
   text-shadow: 2px 2px var(--secondary);
+  width: 126px;
+  display: inline-block;
 }
 
 .navbar_button:hover {
@@ -30,8 +32,6 @@ body {
 #navbar {
   padding-top: 10px;
   padding-bottom: 10px;  
-  width: 80%;
-  left: 10%;
   display: block;
   position: relative;
   background-color: var(--main);
@@ -39,8 +39,6 @@ body {
 }
 
 #banner {
-  width: 80%;
-  left: 10%;
   display: block;
   position: relative;
   background-color: var(--main);
@@ -63,17 +61,15 @@ h2, h3 {
 }
 
 .content_box {
-  width: 80%;
   position: relative;
-  left: 10%;
   padding-bottom: 100%;
   background-color: var(--pale);
 }
 
 form {
   position: relative;
-  left: 10%;
   width: 80%;
+  left: 10%;
 }
 
 label {
@@ -86,24 +82,23 @@ input {
   width: calc(100% - 100px);
 }
 
+button {
+  padding: 4px 20px;
+  font-size: 10pt;
+}
+
 button:not(#copy_timestamp_button) {
   display: block;
   margin-left: auto;
   margin-right: auto;
   margin-top: 10px;
-  font-size: 24px;
-}
-
-#timestamp_box {
-  position: relative;
-  width: 33%;
-  left: 33%;
+  margin-bottom: 10px;
 }
 
 #results {
   position: absolute;
-  left: 25%;
-  width: 50%;
+  left: 15%;
+  width: 70%;
   border: 2px solid var(--accent);
   border-radius: 12px;
   background-color:white;
@@ -114,8 +109,16 @@ button:not(#copy_timestamp_button) {
   padding: 10px 0 0 20px;
 }
 
-#copy_timestamp_button {
-  position: absolute;
-  left: 95%;
-  top: 40%;
+#timestamp_box {
+  position: relative;
+}
+
+#timestamp {
+  display: inline-block;
+  width: calc(60% - 80px);
+  margin-left: 20%;
+}
+
+#timestamp_box > button {
+  display: inline-block;
 } 

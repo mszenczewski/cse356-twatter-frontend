@@ -92,7 +92,7 @@ export default class SearchScreen extends Component {
         <div id="timestamp_box">        
           <h3 id="timestamp">Current Timestamp: {this.state.current_timestamp}</h3>
           <CopyToClipboard text={this.state.current_timestamp}>
-              <button id="copy_timestamp_button" className="copy-clipboard">Copy</button>
+              <button>Copy</button>
           </CopyToClipboard>
         </div>
         <form onSubmit={this.submit}>
