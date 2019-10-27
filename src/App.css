@@ -1,17 +1,12 @@
 :root {
   --main:    rgb(95, 188, 228); 
   --secondary:    rgb(34, 143, 190); 
-  --accent:    rgb(28, 130, 173); 
-  --pale:    rgb(218, 244, 255); 
+  --dark:    rgb(0, 108, 155); 
 }
 
 * {
   margin: 0;
   padding: 0;
-}
-
-body {
-    background-color: white;
 }
 
 .navbar_button {
@@ -26,7 +21,7 @@ body {
 }
 
 .navbar_button:hover {
-  background-color: var(--accent);
+  background-color: var(--secondary);
 }
 
 #navbar {
@@ -61,28 +56,38 @@ h2, h3 {
   text-align: center;
   padding-top: 20px;
   padding-bottom: 20px;
+  color: white;
 }
 
 .content_box {
   position: relative;
   padding-bottom: 100%;
-  background-color: var(--pale);
+  background-color: var(--dark);
+  font-weight: bold;
 }
 
 form {
   position: relative;
-  width: 80%;
-  left: 10%;
+  width: 70%;
+  left: 15%;
+  border-radius: 20px;
+  background-color: white;
+  padding-top: 16px;
+  padding-bottom: 16px;
 }
 
 label {
   display: inline-block;
   width: 90px;
-  padding-bottom: 10px;
+  padding: 20px;
 }
 
 input {
-  width: calc(100% - 100px);
+  width: calc(100% - 180px);
+  padding: 5px;
+  margin: 10px;
+  border-radius: 20px;
+  border: 2px solid var(--dark);
 }
 
 button {
@@ -99,12 +104,11 @@ button:not(#copy_timestamp_button) {
 }
 
 #results {
-  position: absolute;
+  position: relative;
   width: 70%;
   left: 15%;
-  border: 2px solid var(--secondary);
-  border-radius: 12px;
-  background-color:white;
+  border-radius: 20px;
+  background-color: white;
 }
 
 .results_item {
@@ -130,23 +134,20 @@ button:not(#copy_timestamp_button) {
   position: absolute;
   width: 70%;
   left: 15%;
-  border: 2px solid var(--secondary);
-  border-radius: 12px;
-  background-color:white;
-  padding: 10px;
+  border-radius: 20px;
+  background-color: white;
 }
 
-#instructions > p {
-  padding-bottom: 2px;
-  padding-left: 14px;
+#instructions > .instruction {
+  display: inline-block;
+  padding-bottom: 12px;
+  padding-left: 5px;
 }
 
 #instructions > .num {
-  padding-left: 15px;
-  padding-right: 10px;
+  padding-left: 25px;
 }
 
 #instructions > h4 {
-  padding-bottom: 10px;
-  padding-left: 10px;
+  padding: 14px;
 }
