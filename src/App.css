@@ -97,9 +97,9 @@ button:not(#copy_timestamp_button) {
 
 #results {
   position: absolute;
-  left: 15%;
   width: 70%;
-  border: 2px solid var(--accent);
+  left: 15%;
+  border: 2px solid var(--secondary);
   border-radius: 12px;
   background-color:white;
 }
@@ -122,3 +122,28 @@ button:not(#copy_timestamp_button) {
 #timestamp_box > button {
   display: inline-block;
 } 
+
+#instructions {
+  position: absolute;
+  width: 70%;
+  left: 15%;
+  border: 2px solid var(--secondary);
+  border-radius: 12px;
+  background-color:white;
+  padding: 10px;
+}
+
+#instructions > p {
+  padding-bottom: 2px;
+  padding-left: 14px;
+}
+
+#instructions > .num {
+  padding-left: 15px;
+  padding-right: 10px;
+}
+
+#instructions > h4 {
+  padding-bottom: 10px;
+  padding-left: 10px;
+}
