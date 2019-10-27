@@ -87,7 +87,7 @@ export default class SearchScreen extends Component {
 
   render() {
     return (
-      <div className='content_box'>
+      <div className="content_box">
         <h2>Search</h2>
         <div id="timestamp_box">        
           <h3 id="timestamp">Current Timestamp: {this.state.current_timestamp}</h3>
@@ -119,7 +119,7 @@ export default class SearchScreen extends Component {
         <h3>{this.state.results_header}</h3>
         <div id='results'>
           {this.state.results.split('\n').map((i,key) => {
-            return <div className='results_item' key={key}>{i}</div>;
+            return <div className="results_item" key={key}>{i}</div>;
           })}
         </div>
       </div>

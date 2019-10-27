@@ -47,7 +47,7 @@ export default class VerifyScreen extends Component {
 
   render() {
     return (
-      <div className='content_box'>
+      <div className="content_box">
         <h2>Verify</h2>
         <form onSubmit={this.submit}>
           <div>
@@ -70,7 +70,7 @@ export default class VerifyScreen extends Component {
           </div>
           <button>Submit</button>
         </form>
-        <h3 className='response'>{this.state.response}</h3>
+        <h3>{this.state.response}</h3>
       </div>
     );
   }
