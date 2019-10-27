@@ -15,7 +15,7 @@ export default class LogoutScreen extends Component {
         console.log('LOGOUT RESPONSE: ' + JSON.stringify(res.data, null, 2));
 
         if (res.data.status === 'OK') {
-          this.setState({response: 'Succesfully logged out'});
+          this.props.history.push('/twatter/');          
         } else {
           this.setState({response: res.data.error}); 
         }
@@ -30,7 +30,7 @@ export default class LogoutScreen extends Component {
       <div className="content_box">
         <h2>Logout</h2>
         <form onSubmit={this.submit}>
-          <button>Logout</button>
+          <button>Confirm</button>
         </form>
         <h3>{this.state.response}</h3>
       </div>
