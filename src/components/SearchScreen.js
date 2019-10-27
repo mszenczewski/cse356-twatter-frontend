@@ -87,7 +87,7 @@ export default class SearchScreen extends Component {
 
   render() {
     return (
-      <div class='content_box'>
+      <div className='content_box'>
         <h2>Search</h2>
         <div id="timestamp_box">        
           <h3 id="timestamp">Current Timestamp: {this.state.current_timestamp}</h3>

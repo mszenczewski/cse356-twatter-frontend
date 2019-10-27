@@ -55,7 +55,7 @@ export default class AddUserScreen extends Component {
 
   render() {
     return (
-      <div class='content_box'>
+      <div className='content_box'>
         <h2>Add User</h2>
         <form onSubmit={this.submit}>
           <div>
