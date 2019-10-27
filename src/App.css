@@ -44,7 +44,9 @@ body {
   background-color: var(--main);
 }
 
-#banner > h1 {
+#banner_title {
+  display: block;
+  margin: auto;
   color: white;
   font-size: 48px;
   font-weight: bold;
@@ -52,6 +54,7 @@ body {
   padding-top: 20px;
   text-align: center;
   text-shadow: 3px 3px var(--secondary);
+  text-decoration: none;
 }
 
 h2, h3 {

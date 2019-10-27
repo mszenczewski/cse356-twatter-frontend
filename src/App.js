@@ -17,7 +17,7 @@ export default class App extends Component {
       <BrowserRouter>
         <div>
           <div id="banner">
-            <h1>Twatter</h1>
+            <Link id="banner_title" to="/twatter/">TWATTER</Link>
           </div>
           <div id="navbar">
             <Link className="navbar_button" to="/twatter/adduser">ADD USER</Link>
