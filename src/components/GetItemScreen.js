@@ -16,6 +16,11 @@ export default class GetItemScreen extends Component {
   submit = e => {
     e.preventDefault();
 
+    if (this.state.id === '') {
+      this.setState({response: 'no item entered'});
+      return;
+    }
+
     axios
       .get("http://gaillardia.cse356.compas.cs.stonybrook.edu/item/" + this.state.id)
       .then(res => {
