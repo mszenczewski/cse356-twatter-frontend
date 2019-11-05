@@ -44,6 +44,12 @@ export default class SearchScreen extends Component {
     });
   };
 
+  query_change = e => {
+    this.setState({
+      query: e.target.value
+    });
+  };
+
   submit = e => {
     e.preventDefault();
 
@@ -55,6 +61,10 @@ export default class SearchScreen extends Component {
 
     if (this.state.limit !== '') {
       json.limit = this.state.limit;
+    }
+
+    if (this.state.query !== '') {
+      json.q = this.state.query;
     }
 
     console.log('JSON: ' + JSON.stringify(json, null, 2));
@@ -84,7 +94,6 @@ export default class SearchScreen extends Component {
       });
   };
 
-
   render() {
     return (
       <div className="content_box">
@@ -96,7 +105,6 @@ export default class SearchScreen extends Component {
           </CopyToClipboard>
         </div>
         <form onSubmit={this.submit}>
-          <div>
             <label htmlFor="timestampInput">Timestamp: </label>
             <input
               id="timestampInput"
@@ -104,8 +112,6 @@ export default class SearchScreen extends Component {
               type="text"
               value={this.state.timestamp}
             />
-          </div>
-          <div>
             <label htmlFor="limitInput">Limit: </label>
             <input
               id="limitInput"
@@ -113,7 +119,13 @@ export default class SearchScreen extends Component {
               type="text"
               value={this.state.limit}
             />
-          </div>
+            <label htmlFor="queryInput">Query: </label>
+            <input
+              id="queryInput"
+              onChange={this.query_change}
+              type="text"
+              value={this.state.query}
+            />
           <button>Submit</button>
         </form>
         <h3>{this.state.results_header}</h3>
