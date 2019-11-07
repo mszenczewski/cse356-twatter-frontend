@@ -96,8 +96,8 @@ export default class SearchScreen extends Component {
           }
 
         } else {
-          this.setState({results_header: ''});
-          this.setState({results: res.data.error}); 
+          this.setState({results_header: res.data.error});
+          this.setState({results: ''}); 
         }
       })
       .catch(err => {
