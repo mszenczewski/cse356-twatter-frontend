@@ -11,13 +11,13 @@
 
 .navbar_button {
   padding: 10px;
+  text-align: center;
   color: white;
   font-size: 24px;
   font-weight: bold;
   text-decoration: none;
   text-shadow: 2px 2px var(--dark);
   width: 126px;
-  display: inline-block;
 }
 
 .navbar_button:hover {

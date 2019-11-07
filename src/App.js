@@ -21,14 +21,14 @@ export default class App extends Component {
             <Link id="banner_title" to="/twatter/">TWATTER</Link>
           </div>
           <div id="navbar">
-            <Link className="navbar_button" to="/twatter/adduser">ADD USER</Link>
+            <Link className="navbar_button" to="/twatter/adduser">REGISTER</Link>
             <Link className="navbar_button" to="/twatter/user">USER</Link>
             <Link className="navbar_button" to="/twatter/verify">VERIFY</Link>
             <Link className="navbar_button" to="/twatter/login">LOGIN</Link>
-            <Link className="navbar_button" to="/twatter/additem">ADD ITEM</Link>
+            <Link className="navbar_button" to="/twatter/additem">TWEET</Link>
             <Link className="navbar_button" to="/twatter/item">ITEM</Link>
             <Link className="navbar_button" to="/twatter/search">SEARCH</Link>
-            <Link className="navbar_button" to="/twatter/logout">LOG OUT</Link>
+            <Link className="navbar_button" to="/twatter/logout">LOGOUT</Link>
           </div>
           <Switch>
             <Route path="/twatter/adduser" component={AddUserScreen} />
