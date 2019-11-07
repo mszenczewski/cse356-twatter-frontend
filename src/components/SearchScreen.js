@@ -13,6 +13,7 @@ export default class SearchScreen extends Component {
       current_timestamp: t,
       timestamp: '',
       limit: '',
+      following: false,
       results_header: '',
       results: ''
     }
@@ -50,6 +51,12 @@ export default class SearchScreen extends Component {
     });
   };
 
+  following_change = e => {
+    this.setState({
+      following: e.target.checked
+    });
+  };
+
   submit = e => {
     e.preventDefault();
 
@@ -65,6 +72,10 @@ export default class SearchScreen extends Component {
 
     if (this.state.query !== '') {
       json.q = this.state.query;
+    }
+
+    if (this.state.query !== '') {
+      json.following = this.state.following;
     }
 
     console.log('JSON: ' + JSON.stringify(json, null, 2));
@@ -124,6 +135,13 @@ export default class SearchScreen extends Component {
               id="queryInput"
               onChange={this.query_change}
               type="text"
+              value={this.state.query}
+            />
+            <label htmlFor="followingInput">Following: </label>
+            <input
+              id="followingInput"
+              onChange={this.following_change}
+              type="checkbox"
               value={this.state.query}
             />
           <button>Submit</button>
