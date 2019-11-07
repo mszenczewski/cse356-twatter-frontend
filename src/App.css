@@ -60,14 +60,14 @@ h2, h3 {
   color: white;
 }
 
-.content_box {
+.main {
   position: relative;
   padding-bottom: 100%;
   background-color: var(--dark);
   font-weight: bold;
 }
 
-form {
+form, .content_card {
   position: relative;
   width: 70%;
   left: 15%;
@@ -75,6 +75,18 @@ form {
   background-color: white;
   padding-top: 16px;
   padding-bottom: 16px;
+}
+
+.content_card > h2, 
+.content_card > h3 {
+  text-align: center;
+  padding-bottom: 7px;
+  color: black;
+}
+
+.content_card > h4 {
+  font-style: italic;
+  text-align: center;
 }
 
 label {
@@ -162,4 +174,8 @@ button:not(#copy_timestamp_button) {
 #followingInput, #followInput {
   width: auto;
   margin-left: 12px;
+}
+
+.item_card > h3{
+  color:black;
 }

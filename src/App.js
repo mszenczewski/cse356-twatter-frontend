@@ -8,7 +8,7 @@ import LogoutScreen from './components/LogoutScreen'
 import VerifyScreen from './components/VerifyScreen'
 import AddUserScreen from './components/AddUserScreen'
 import AddItemScreen from './components/AddItemScreen'
-import GetItemScreen from './components/GetItemScreen'
+import ItemScreen from './components/ItemScreen'
 import GetUserScreen from './components/GetUserScreen'
 import SearchScreen from './components/SearchScreen'
 import FollowScreen from './components/FollowScreen'
@@ -39,7 +39,7 @@ export default class App extends Component {
             <Route path="/twatter/login" component={LoginScreen} />
             <Route path="/twatter/logout" component={LogoutScreen} />
             <Route path="/twatter/additem" component={AddItemScreen} />
-            <Route path="/twatter/item" component={GetItemScreen} />
+            <Route path="/twatter/item" component={ItemScreen} />
             <Route path="/twatter/follow" component={FollowScreen} />
             <Route path="/twatter/search" component={SearchScreen} />
             <Route component={HomeScreen} />

@@ -27,7 +27,7 @@ export default class LogoutScreen extends Component {
 
   render() {
     return (
-      <div className="content_box">
+      <div className="main">
         <h2>Logout</h2>
         <form onSubmit={this.submit}>
           <button>Confirm</button>

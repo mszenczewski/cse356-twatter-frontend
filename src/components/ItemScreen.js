@@ -1,10 +1,14 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
-export default class GetItemScreen extends Component {
+import ItemCard from './ItemCard'
+
+export default class ItemScreen extends Component {
   state = {
     id: '',
-    response: ''
+    response: '',
+    card_show: false,
+    card_item: ''
   };
 
   id_change = e => {
@@ -12,6 +16,11 @@ export default class GetItemScreen extends Component {
       id: e.target.value
     });
   };
+
+  hide_card = () => {
+    this.setState({card_show: false});
+    this.setState({response: 'Tweet succesfully deleted!'});    
+  }
 
   submit = e => {
     e.preventDefault();
@@ -27,7 +36,8 @@ export default class GetItemScreen extends Component {
         console.log('ITEM RESPONSE: ' + JSON.stringify(res.data, null, 2));
 
         if (res.data.status === 'OK') {
-          this.setState({response: res.data.item.content});
+          this.setState({card_show: true});
+          this.setState({card_item: res.data.item});
         } else {
           this.setState({response: res.data.error}); 
         }
@@ -40,10 +50,9 @@ export default class GetItemScreen extends Component {
 
   render() {
     return (
-      <div className="content_box">
-        <h2>Get Item</h2>
+      <div className="main">
+        <h2>Item</h2>
         <form onSubmit={this.submit}>
-        <div>
           <label htmlFor="idInput">ID:</label>
           <input
             id="id"
@@ -51,10 +60,11 @@ export default class GetItemScreen extends Component {
             type="text"
             value={this.state.id}
             />
-        </div>
-        <button>Submit</button>
+          <button>Submit</button>
         </form>
         <h3>{this.state.response}</h3>
+        {this.state.card_show ? 
+          <ItemCard item={this.state.card_item} hide_card={this.hide_card}/> : null}
       </div>
     );
   }

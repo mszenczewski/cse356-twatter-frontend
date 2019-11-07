@@ -47,7 +47,7 @@ export default class FollowScreen extends Component {
 
   render() {
     return (
-      <div className="content_box">
+      <div className="main">
         <h2>Follow</h2>
         <form onSubmit={this.submit}>
           <div>

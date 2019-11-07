@@ -50,7 +50,7 @@ export default class AddItemScreen extends Component {
 
   render() {
     return (
-      <div className="content_box">
+      <div className="main">
         <h2>Add Item</h2>
         <form onSubmit={this.submit}>
           <div>

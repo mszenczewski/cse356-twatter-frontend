@@ -47,7 +47,7 @@ export default class VerifyScreen extends Component {
 
   render() {
     return (
-      <div className="content_box">
+      <div className="main">
         <h2>Verify</h2>
         <form onSubmit={this.submit}>
           <div>
