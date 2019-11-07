@@ -23,7 +23,7 @@ body {
   font-weight: bold;
   text-decoration: none;
   text-shadow: 2px 2px var(--dark);
-  width: 126px;
+  display: inline-block;
 }
 
 .navbar_button:hover {
