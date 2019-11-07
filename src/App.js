@@ -9,6 +9,7 @@ import VerifyScreen from './components/VerifyScreen'
 import AddUserScreen from './components/AddUserScreen'
 import AddItemScreen from './components/AddItemScreen'
 import GetItemScreen from './components/GetItemScreen'
+import GetUserScreen from './components/GetUserScreen'
 import SearchScreen from './components/SearchScreen'
 
 export default class App extends Component {
@@ -21,20 +22,22 @@ export default class App extends Component {
           </div>
           <div id="navbar">
             <Link className="navbar_button" to="/twatter/adduser">ADD USER</Link>
+            <Link className="navbar_button" to="/twatter/user">USER</Link>
             <Link className="navbar_button" to="/twatter/verify">VERIFY</Link>
-            <Link className="navbar_button" to="/twatter/login">LOG IN</Link>
+            <Link className="navbar_button" to="/twatter/login">LOGIN</Link>
             <Link className="navbar_button" to="/twatter/additem">ADD ITEM</Link>
-            <Link className="navbar_button" to="/twatter/getitem">GET ITEM</Link>
+            <Link className="navbar_button" to="/twatter/item">ITEM</Link>
             <Link className="navbar_button" to="/twatter/search">SEARCH</Link>
             <Link className="navbar_button" to="/twatter/logout">LOG OUT</Link>
           </div>
           <Switch>
             <Route path="/twatter/adduser" component={AddUserScreen} />
+            <Route path="/twatter/user" component={GetUserScreen} />
             <Route path="/twatter/verify" component={VerifyScreen} />
             <Route path="/twatter/login" component={LoginScreen} />
             <Route path="/twatter/logout" component={LogoutScreen} />
             <Route path="/twatter/additem" component={AddItemScreen} />
-            <Route path="/twatter/getitem" component={GetItemScreen} />
+            <Route path="/twatter/item" component={GetItemScreen} />
             <Route path="/twatter/search" component={SearchScreen} />
             <Route component={HomeScreen} />
           </Switch>
