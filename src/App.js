@@ -11,6 +11,7 @@ import AddItemScreen from './components/AddItemScreen'
 import GetItemScreen from './components/GetItemScreen'
 import GetUserScreen from './components/GetUserScreen'
 import SearchScreen from './components/SearchScreen'
+import FollowScreen from './components/FollowScreen'
 
 export default class App extends Component {
   render() {
@@ -28,6 +29,7 @@ export default class App extends Component {
             <Link className="navbar_button" to="/twatter/additem">TWEET</Link>
             <Link className="navbar_button" to="/twatter/item">ITEM</Link>
             <Link className="navbar_button" to="/twatter/search">SEARCH</Link>
+            <Link className="navbar_button" to="/twatter/follow">FOLLOW</Link>
             <Link className="navbar_button" to="/twatter/logout">LOGOUT</Link>
           </div>
           <Switch>
@@ -38,6 +40,7 @@ export default class App extends Component {
             <Route path="/twatter/logout" component={LogoutScreen} />
             <Route path="/twatter/additem" component={AddItemScreen} />
             <Route path="/twatter/item" component={GetItemScreen} />
+            <Route path="/twatter/follow" component={FollowScreen} />
             <Route path="/twatter/search" component={SearchScreen} />
             <Route component={HomeScreen} />
           </Switch>
