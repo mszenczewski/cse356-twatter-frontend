@@ -75,6 +75,10 @@ form, .content_card {
   padding-bottom: 16px;
 }
 
+.content_card {
+  margin-bottom: 50px;
+}
+
 .content_card > h2, 
 .content_card > h3 {
   text-align: center;
@@ -125,15 +129,7 @@ button:not(#copy_timestamp_button) {
   margin-bottom: 10px;
 }
 
-#results {
-  position: relative;
-  width: 70%;
-  left: 15%;
-  border-radius: 20px;
-  background-color: white;
-}
-
-.results_item {
+.search_result {
   text-align: left;
   padding: 10px 0 0 20px;
 }

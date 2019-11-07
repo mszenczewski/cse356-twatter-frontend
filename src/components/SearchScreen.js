@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {CopyToClipboard} from 'react-copy-to-clipboard';
 import axios from 'axios';
+import SearchResults from './SearchResults';
 
 export default class SearchScreen extends Component {
   constructor(props) {
@@ -15,8 +16,9 @@ export default class SearchScreen extends Component {
       limit: '',
       following: false,
       username: '',
-      results_header: '',
-      results: ''
+      response: '',
+      results: [],
+      results_show: false
     }
   }
 
@@ -34,81 +36,40 @@ export default class SearchScreen extends Component {
     clearInterval(this.interval);
   }
 
-  timestamp_change = e => {
-    this.setState({
-      timestamp: e.target.value
-    });
-  };
+  show_results = () => {this.setState({results_show: true});}
+  hide_results = () => {this.setState({results_show: false});}
 
-  limit_change = e => {
-    this.setState({
-      limit: e.target.value
-    });
-  };
-
-  query_change = e => {
-    this.setState({
-      query: e.target.value
-    });
-  };
-
-  following_change = e => {
-    this.setState({
-      following: e.target.checked
-    });
-  };
-
-  username_change = e => {
-    this.setState({
-      username: e.target.value
-    });
-  };
+  timestamp_change = e => {this.setState({timestamp: e.target.value});};
+  limit_change = e => {this.setState({limit: e.target.value});};
+  query_change = e => {this.setState({query: e.target.value});};
+  following_change = e => {this.setState({following: e.target.checked});};
+  username_change = e => {this.setState({username: e.target.value});};
 
   submit = e => {
     e.preventDefault();
 
+    this.hide_results();
+
     const json = {};
 
-    if (this.state.timestamp !== '') {
-      json.timestamp = this.state.timestamp;
-    }
-
-    if (this.state.limit !== '') {
-      json.limit = this.state.limit;
-    }
-
-    if (this.state.query !== '') {
-      json.q = this.state.query;
-    }
-
-    if (this.state.query !== '') {
-      json.following = this.state.following;
-    }
-
-    if (this.state.username !== '') {
-      json.username = this.state.username;
-    }    
-
-    console.log('JSON: ' + JSON.stringify(json, null, 2));
-
+    if (this.state.timestamp !== '') json.timestamp = this.state.timestamp;
+    if (this.state.limit !== '') json.limit = this.state.limit;
+    if (this.state.query !== '') json.q = this.state.query;
+    if (this.state.following !== '') json.following = this.state.following;
+    if (this.state.username !== '') json.username = this.state.username;
+    
     axios
       .post("http://gaillardia.cse356.compas.cs.stonybrook.edu/search", json)
       .then(res => {
         console.log('SEARCH RESPONSE: ' + JSON.stringify(res.data, null, 2));
 
         if (res.data.status === 'OK') {
-          console.log(JSON.stringify(res.data.items, null, 2));
-
-          this.setState({results_header: 'Search Results'});
-          this.setState({results: ''});
-
-          for (var i = 0; i < res.data.items.length; i++) {
-            this.setState({results: this.state.results + res.data.items[i].content + '\n'});
-          }
-
+          this.setState({response: ''});
+          this.setState({results: res.data});
+          this.show_results();   
         } else {
-          this.setState({results_header: res.data.error});
-          this.setState({results: ''}); 
+          this.setState({response: res.data.error});
+          this.setState({results: []}); 
         }
       })
       .catch(err => {
@@ -164,12 +125,8 @@ export default class SearchScreen extends Component {
             />
           <button>Submit</button>
         </form>
-        <h3>{this.state.results_header}</h3>
-        <div id='results'>
-          {this.state.results.split('\n').map((i,key) => {
-            return <div className="results_item" key={key}>{i}</div>;
-          })}
-        </div>
+        <h3>{this.state.response}</h3>
+        {this.state.results_show ? <SearchResults items={this.state.results.items}/> : null}
       </div>
     );
   }
