@@ -22,6 +22,8 @@ export default class UserCard extends Component {
 
         if (res.data.status === 'OK') {
           this.setState({email: res.data.user.email});
+          this.setState({followers: res.data.user.followers});
+          this.setState({following: res.data.user.following});
         } 
       })
       .catch(err => {
@@ -91,10 +93,11 @@ export default class UserCard extends Component {
           <h3>{this.state.username}</h3>
           <h4>{this.state.email}</h4>
           <h5>Followers: {this.state.followers}</h5>
+          <h5>&nbsp;&nbsp;&nbsp;{this.state.follower_list}</h5>
           <h5>Following: {this.state.following}</h5>
-          <h5>Tweets: {this.state.items}</h5>
-          <h5>Followers: {this.state.follower_list}</h5>
-          <h5>Following: {this.state.following_list}</h5>
+          <h5>&nbsp;&nbsp;&nbsp;{this.state.following_list}</h5>
+          <h5>Tweets: </h5>
+          <h5>&nbsp;&nbsp;&nbsp;{this.state.items}</h5>
         </div>
       </div>
     );
