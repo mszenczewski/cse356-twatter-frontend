@@ -138,7 +138,7 @@ export default class SearchScreen extends Component {
               value={this.state.query}
             />
             <label htmlFor="followingInput">Following: </label>
-            <input
+            <input 
               id="followingInput"
               onChange={this.following_change}
               type="checkbox"

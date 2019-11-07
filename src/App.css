@@ -7,6 +7,7 @@
 * {
   margin: 0;
   padding: 0;
+  clear: both;
 }
 
 .navbar_button {
@@ -156,4 +157,8 @@ button:not(#copy_timestamp_button) {
 
 #instructions > h4 {
   padding: 14px;
+}
+
+#followingInput {
+  width: auto;
 }
