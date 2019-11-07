@@ -46,7 +46,7 @@ export default class LoginScreen extends Component {
 
   render() {
     return (
-      <div className="main">
+      <div>
         <h2>Login</h2>
         <form onSubmit={this.submit}>
           <div>

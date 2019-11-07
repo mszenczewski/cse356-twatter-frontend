@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
-export default class AddUserScreen extends Component {
+export default class RegisterScreen extends Component {
   state = {
     username: '',
     password: '',
@@ -55,8 +55,8 @@ export default class AddUserScreen extends Component {
 
   render() {
     return (
-      <div className="main">
-        <h2>Add User</h2>
+      <div>
+        <h2>Register</h2>
         <form onSubmit={this.submit}>
           <div>
             <label htmlFor="usernameInput">Username: </label>

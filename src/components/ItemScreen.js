@@ -17,8 +17,17 @@ export default class ItemScreen extends Component {
     });
   };
 
+  show_card = () => {
+    this.setState({card_show: true});
+    this.setState({response: ''});
+  }
+
   hide_card = () => {
     this.setState({card_show: false});
+  }
+
+  delete_done = () => {
+    this.hide_card();
     this.setState({response: 'Tweet succesfully deleted!'});    
   }
 
@@ -27,6 +36,7 @@ export default class ItemScreen extends Component {
 
     if (this.state.id === '') {
       this.setState({response: 'no item entered'});
+      this.hide_card();
       return;
     }
 
@@ -34,12 +44,12 @@ export default class ItemScreen extends Component {
       .get("http://gaillardia.cse356.compas.cs.stonybrook.edu/item/" + this.state.id)
       .then(res => {
         console.log('ITEM RESPONSE: ' + JSON.stringify(res.data, null, 2));
-
+        this.hide_card(); 
         if (res.data.status === 'OK') {
-          this.setState({card_show: true});
           this.setState({card_item: res.data.item});
+          this.show_card();
         } else {
-          this.setState({response: res.data.error}); 
+          this.setState({response: res.data.error});
         }
 
       })
@@ -50,7 +60,7 @@ export default class ItemScreen extends Component {
 
   render() {
     return (
-      <div className="main">
+      <div>
         <h2>Item</h2>
         <form onSubmit={this.submit}>
           <label htmlFor="idInput">ID:</label>
@@ -63,8 +73,7 @@ export default class ItemScreen extends Component {
           <button>Submit</button>
         </form>
         <h3>{this.state.response}</h3>
-        {this.state.card_show ? 
-          <ItemCard item={this.state.card_item} hide_card={this.hide_card}/> : null}
+        {this.state.card_show ? <ItemCard item={this.state.card_item} delete_done={this.delete_done}/> : null}
       </div>
     );
   }

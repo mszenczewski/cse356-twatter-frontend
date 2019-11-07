@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
-export default class AddItemScreen extends Component {
+export default class TweetScreen extends Component {
   state = {
     content: '',
     childType: 'none',
@@ -50,8 +50,8 @@ export default class AddItemScreen extends Component {
 
   render() {
     return (
-      <div className="main">
-        <h2>Add Item</h2>
+      <div>
+        <h2>Tweet</h2>
         <form onSubmit={this.submit}>
           <div>
             <label>Content:</label>

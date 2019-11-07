@@ -4,10 +4,15 @@
   --dark:    rgb(0, 108, 155); 
 }
 
+body {
+  background-color: var(--dark);
+}
+
 * {
   margin: 0;
   padding: 0;
   clear: both;
+  font-weight: bold;
 }
 
 .navbar_button {
@@ -60,13 +65,6 @@ h2, h3 {
   color: white;
 }
 
-.main {
-  position: relative;
-  padding-bottom: 100%;
-  background-color: var(--dark);
-  font-weight: bold;
-}
-
 form, .content_card {
   position: relative;
   width: 70%;
@@ -81,12 +79,17 @@ form, .content_card {
 .content_card > h3 {
   text-align: center;
   padding-bottom: 7px;
+  padding-top: 4px;
   color: black;
 }
 
 .content_card > h4 {
   font-style: italic;
   text-align: center;
+}
+
+.content_card > h5 {
+  padding: 6px 15px;
 }
 
 label {
@@ -174,8 +177,4 @@ button:not(#copy_timestamp_button) {
 #followingInput, #followInput {
   width: auto;
   margin-left: 12px;
-}
-
-.item_card > h3{
-  color:black;
 }

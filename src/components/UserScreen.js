@@ -1,12 +1,22 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import UserCard from './UserCard'
 
-export default class GetUserScreen extends Component {
+export default class UserScreen extends Component {
   state = {
     username: '',
     response: '',
-    results: ''
+    card_show: false,
   };
+
+  show_card = () => {
+    this.setState({card_show: true});
+    this.setState({response: ''});
+  }
+
+  hide_card = () => {
+    this.setState({card_show: false});
+  }
 
   username_change = e => {
     this.setState({
@@ -19,6 +29,7 @@ export default class GetUserScreen extends Component {
 
     if (this.state.username === '') {
       this.setState({response: 'no username entered'});
+      this.hide_card();
       return;
     }
 
@@ -26,8 +37,10 @@ export default class GetUserScreen extends Component {
       .get("http://gaillardia.cse356.compas.cs.stonybrook.edu/user/" + this.state.username)
       .then(res => {
         console.log('ITEM RESPONSE: ' + JSON.stringify(res.data, null, 2));
-
+        this.hide_card();
         if (res.data.status === 'OK') {
+          this.show_card();
+
           let s = '';
 
           s += 'Email: ' + res.data.user.email + '\n';
@@ -47,8 +60,8 @@ export default class GetUserScreen extends Component {
 
   render() {
     return (
-      <div className="main">
-        <h2>Get User</h2>
+      <div>
+        <h2>User</h2>
         <form onSubmit={this.submit}>
         <div>
           <label htmlFor="usernameInput">Username:</label>
@@ -62,11 +75,7 @@ export default class GetUserScreen extends Component {
         <button>Submit</button>
         </form>
         <h3>{this.state.response}</h3>
-        <div id='results'>
-          {this.state.results.split('\n').map((i,key) => {
-            return <div className="results_item" key={key}>{i}</div>;
-          })}
-        </div>
+        {this.state.card_show ? <UserCard username={this.state.username}/> : null}
       </div>
     );
   }
