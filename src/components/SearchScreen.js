@@ -14,6 +14,7 @@ export default class SearchScreen extends Component {
       timestamp: '',
       limit: '',
       following: false,
+      username: '',
       results_header: '',
       results: ''
     }
@@ -57,6 +58,12 @@ export default class SearchScreen extends Component {
     });
   };
 
+  username_change = e => {
+    this.setState({
+      username: e.target.value
+    });
+  };
+
   submit = e => {
     e.preventDefault();
 
@@ -77,6 +84,10 @@ export default class SearchScreen extends Component {
     if (this.state.query !== '') {
       json.following = this.state.following;
     }
+
+    if (this.state.username !== '') {
+      json.username = this.state.username;
+    }    
 
     console.log('JSON: ' + JSON.stringify(json, null, 2));
 
@@ -129,6 +140,13 @@ export default class SearchScreen extends Component {
               onChange={this.limit_change}
               type="text"
               value={this.state.limit}
+            />
+            <label htmlFor="usernameInput">Username: </label>
+            <input
+              id="usernameInput"
+              onChange={this.username_change}
+              type="text"
+              value={this.state.username}
             />
             <label htmlFor="queryInput">Query: </label>
             <input
