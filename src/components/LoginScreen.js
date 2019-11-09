@@ -8,17 +8,8 @@ export default class LoginScreen extends Component {
     response: ''
   };
 
-  username_change = e => {
-    this.setState({
-      username: e.target.value
-    });
-  };
-
-  password_change = e => {
-    this.setState({
-      password: e.target.value
-    });
-  };
+  username_change = e => {this.setState({username: e.target.value});};
+  password_change = e => {this.setState({password: e.target.value});};
 
   submit = e => {
     e.preventDefault();

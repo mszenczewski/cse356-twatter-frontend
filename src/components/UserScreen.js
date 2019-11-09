@@ -18,11 +18,7 @@ export default class UserScreen extends Component {
     this.setState({card_show: false});
   }
 
-  username_change = e => {
-    this.setState({
-      username: e.target.value
-    });
-  };
+  username_change = e => {this.setState({username: e.target.value});};
 
   submit = e => {
     e.preventDefault();

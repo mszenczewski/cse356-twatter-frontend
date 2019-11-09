@@ -8,17 +8,8 @@ export default class TweetScreen extends Component {
     response: ''
   };
 
-  content_change = e => {
-    this.setState({
-      content: e.target.value
-    });
-  };
-
-  childType_change = e => {
-    this.setState({
-      childType: e.target.value
-    });
-  };
+  content_change = e => {this.setState({content: e.target.value});};
+  childType_change = e => {this.setState({childType: e.target.value});};
 
   submit = e => {
     e.preventDefault();

@@ -8,17 +8,8 @@ export default class VerifyScreen extends Component {
     response: ''
   };
 
-  email_change = e => {
-    this.setState({
-      email: e.target.value
-    });
-  };
-
-  key_change = e => {
-    this.setState({
-      key: e.target.value
-    });
-  };
+  email_change = e => {this.setState({email: e.target.value});};
+  key_change = e => {this.setState({key: e.target.value});};
 
   submit = e => {
     e.preventDefault();
@@ -43,7 +34,6 @@ export default class VerifyScreen extends Component {
         console.log('VERIFY ERROR: ' + err);
       });
   };
-
 
   render() {
     return (

@@ -8,17 +8,8 @@ export default class FollowScreen extends Component {
     response: ''
   };
 
-  username_change = e => {
-    this.setState({
-      username: e.target.value
-    });
-  };
-
-  follow_change = e => {
-    this.setState({
-      follow: e.target.checked
-    });
-  };
+  username_change = e => {this.setState({username: e.target.value});};
+  follow_change = e => {this.setState({follow: e.target.checked});};
 
   submit = e => {
     e.preventDefault();

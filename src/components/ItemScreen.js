@@ -11,11 +11,7 @@ export default class ItemScreen extends Component {
     card_item: ''
   };
 
-  id_change = e => {
-    this.setState({
-      id: e.target.value
-    });
-  };
+  id_change = e => {this.setState({id: e.target.value});};
 
   show_card = () => {
     this.setState({card_show: true});

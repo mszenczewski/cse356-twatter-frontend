@@ -9,23 +9,9 @@ export default class RegisterScreen extends Component {
     response: ''
   };
 
-  username_change = e => {
-    this.setState({
-      username: e.target.value
-    });
-  };
-
-  password_change = e => {
-    this.setState({
-      password: e.target.value
-    });
-  };
-
-  email_change = e => {
-    this.setState({
-      email: e.target.value
-    });
-  };
+  username_change = e => {this.setState({username: e.target.value});};
+  password_change = e => {this.setState({password: e.target.value});};
+  email_change = e => {this.setState({email: e.target.value});};
 
   submit = e => {
     e.preventDefault();
