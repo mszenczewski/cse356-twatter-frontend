@@ -16,7 +16,7 @@ export default class SearchResults extends Component {
   render() {
     return (
       <div className="content_card">
-        <h2>Search Reults</h2>
+        <h2>Search Results</h2>
         <div>
           {this.state.display.split('\n').map((i,key) => {
             return <div className='search_result' key={key}>{i}</div>;
