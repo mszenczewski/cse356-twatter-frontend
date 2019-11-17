@@ -24,21 +24,6 @@ export default class VerifyScreen extends Component {
       console.log('VERIFY ERROR: ' + err);
       this.setState({response: err.response.data.error});
     }
-
-    // axios
-    //   .post("http://gaillardia.cse356.compas.cs.stonybrook.edu/verify", json)
-    //   .then(res => {
-    //     console.log('VERIFY RESPONSE: ' + JSON.stringify(res.data, null, 2));
-
-    //     if (res.data.status === 'OK') {
-    //       this.setState({response: 'Succesfully verified email!'});
-    //     } else {
-    //       this.setState({response: res.data.error}); 
-    //     }
-    //   })
-    //   .catch(err => {
-    //     console.log('VERIFY ERROR: ' + err);
-    //   });
   };
 
   render() {
