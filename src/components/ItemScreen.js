@@ -8,18 +8,25 @@ export default class ItemScreen extends Component {
     id: '',
     response: '',
     card_show: false,
-    card_item: ''
+    card_item: '',
+    card_response: ''
   };
 
   id_change = e => {this.setState({id: e.target.value});};
 
   show_card = () => {
     this.setState({card_show: true});
+    this.setState({card_response: ''});
     this.setState({response: ''});
   }
 
   hide_card = () => {
     this.setState({card_show: false});
+    this.setState({card_response: ''});
+  }
+
+  set_card_response = (res) => {
+    this.setState({card_response: res});
   }
 
   delete_done = () => {
@@ -69,7 +76,14 @@ export default class ItemScreen extends Component {
           <button className="submit_button">Submit</button>
         </form>
         <h3>{this.state.response}</h3>
-        {this.state.card_show ? <ItemCard item={this.state.card_item} delete_done={this.delete_done}/> : null}
+        {this.state.card_show ? 
+          <ItemCard 
+            item={this.state.card_item} 
+            delete_done={this.delete_done} 
+            set_response={this.set_card_response}
+            />
+          : null}
+        <h3>{this.state.card_response}</h3>
       </div>
     );
   }
