@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import axios from 'axios';
+import Axios from 'axios';
 
 export default class LoginScreen extends Component {
   state = {
@@ -11,28 +11,19 @@ export default class LoginScreen extends Component {
   username_change = e => {this.setState({username: e.target.value});};
   password_change = e => {this.setState({password: e.target.value});};
 
-  submit = e => {
+  submit = async e => {
     e.preventDefault();
 
-    const json = {
-      username: this.state.username,
-      password: this.state.password
-    };
+    const json = {username: this.state.username, password: this.state.password};
 
-    axios
-      .post("http://gaillardia.cse356.compas.cs.stonybrook.edu/login", json)
-      .then(res => {
-        console.log('LOGIN RESPONSE: ' + JSON.stringify(res.data, null, 2));
-
-        if (res.data.status === 'OK') {
-          this.setState({response: 'Succesfully logged in!'});
-        } else {
-          this.setState({response: res.data.error}); 
-        }
-      })
-      .catch(err => {
-        console.log('LOGIN ERROR: ' + err);
-      });
+    try {
+      const res = await Axios.post('http://gaillardia.cse356.compas.cs.stonybrook.edu/login', json);
+      console.log('LOGIN RESPONSE: ' + JSON.stringify(res.data, null, 2));
+      if (res.data.status === 'OK') this.setState({response: 'Succesfully logged in!'});
+    } catch (err) {
+      console.log('LOGIN ERROR: ' + err);
+      this.setState({response: err.response.data.error});
+    }
   };
 
   render() {
