@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import axios from 'axios';
+import Axios from 'axios';
 
 export default class VerifyScreen extends Component {
   state = {
@@ -11,28 +11,34 @@ export default class VerifyScreen extends Component {
   email_change = e => {this.setState({email: e.target.value});};
   key_change = e => {this.setState({key: e.target.value});};
 
-  submit = e => {
+  submit = async e => {
     e.preventDefault();
 
-    const json = {
-      email: this.state.email,
-      key: this.state.key
-    };
+    const json = {email: this.state.email, key: this.state.key};
 
-    axios
-      .post("http://gaillardia.cse356.compas.cs.stonybrook.edu/verify", json)
-      .then(res => {
-        console.log('VERIFY RESPONSE: ' + JSON.stringify(res.data, null, 2));
+    try {
+      const res = await Axios.post('http://gaillardia.cse356.compas.cs.stonybrook.edu/verify', json);
+      console.log('VERIFY RESPONSE: ' + JSON.stringify(res.data, null, 2));
+      if (res.data.status === 'OK') this.setState({response: 'Succesfully verified email!'});
+    } catch (err) {
+      console.log('VERIFY ERROR: ' + err);
+      this.setState({response: err.response.data.error});
+    }
 
-        if (res.data.status === 'OK') {
-          this.setState({response: 'Succesfully verified email!'});
-        } else {
-          this.setState({response: res.data.error}); 
-        }
-      })
-      .catch(err => {
-        console.log('VERIFY ERROR: ' + err);
-      });
+    // axios
+    //   .post("http://gaillardia.cse356.compas.cs.stonybrook.edu/verify", json)
+    //   .then(res => {
+    //     console.log('VERIFY RESPONSE: ' + JSON.stringify(res.data, null, 2));
+
+    //     if (res.data.status === 'OK') {
+    //       this.setState({response: 'Succesfully verified email!'});
+    //     } else {
+    //       this.setState({response: res.data.error}); 
+    //     }
+    //   })
+    //   .catch(err => {
+    //     console.log('VERIFY ERROR: ' + err);
+    //   });
   };
 
   render() {
