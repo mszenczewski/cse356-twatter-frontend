@@ -30,7 +30,7 @@ export default class LogoutScreen extends Component {
       <div>
         <h2>Logout</h2>
         <form onSubmit={this.submit}>
-          <button>Confirm</button>
+          <button className="submit_button">Confirm</button>
         </form>
         <h3>{this.state.response}</h3>
       </div>

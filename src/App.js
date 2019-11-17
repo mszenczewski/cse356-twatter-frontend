@@ -28,9 +28,9 @@ export default class App extends Component {
             <Link className="navbar_button" to="/twatter/login">LOGIN</Link>
             <Link className="navbar_button" to="/twatter/tweet">TWEET</Link>
             <Link className="navbar_button" to="/twatter/user">USER</Link>
+            <Link className="navbar_button" to="/twatter/follow">FOLLOW</Link>
             <Link className="navbar_button" to="/twatter/item">ITEM</Link>
             <Link className="navbar_button" to="/twatter/search">SEARCH</Link>
-            <Link className="navbar_button" to="/twatter/follow">FOLLOW</Link>
             <Link className="navbar_button" to="/twatter/logout">LOGOUT</Link>
           </div>
           <Switch>

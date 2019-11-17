@@ -66,7 +66,7 @@ export default class ItemScreen extends Component {
             type="text"
             value={this.state.id}
             />
-          <button>Submit</button>
+          <button className="submit_button">Submit</button>
         </form>
         <h3>{this.state.response}</h3>
         {this.state.card_show ? <ItemCard item={this.state.card_item} delete_done={this.delete_done}/> : null}

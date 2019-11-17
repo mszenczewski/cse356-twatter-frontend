@@ -123,7 +123,7 @@ export default class SearchScreen extends Component {
               type="checkbox"
               value={this.state.query}
             />
-          <button>Submit</button>
+          <button className="submit_button">Submit</button>
         </form>
         <h3>{this.state.response}</h3>
         {this.state.results_show ? <SearchResults items={this.state.results.items}/> : null}

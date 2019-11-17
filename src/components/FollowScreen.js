@@ -59,7 +59,7 @@ export default class FollowScreen extends Component {
               value={this.state.follow}
             />
           </div>
-          <button>Submit</button>
+          <button className="submit_button">Submit</button>
         </form>
         <h3>{this.state.response}</h3>
       </div>

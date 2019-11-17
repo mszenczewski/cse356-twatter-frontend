@@ -68,7 +68,7 @@ export default class UserScreen extends Component {
             value={this.state.username}
             />
         </div>
-        <button>Submit</button>
+        <button className="submit_button">Submit</button>
         </form>
         <h3>{this.state.response}</h3>
         {this.state.card_show ? <UserCard username={this.state.username}/> : null}

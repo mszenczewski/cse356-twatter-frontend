@@ -23,11 +23,12 @@ export default class ItemCard extends Component {
 
   render() {
     return (
-      <div>
-        <div className="content_card">
-          <h3>{this.props.item.content}</h3>
-          <h4>{this.props.item.username}</h4>
-          <button onClick={this.delete_tweet}>Delete Tweet</button>
+      <div className="content_card">  
+        <h3>{this.props.item.content}</h3>
+        <h4>{this.props.item.username}</h4>
+        <div className="tweet_button_container">          
+          <button onClick={this.like_tweet}>Like</button>
+          <button className="tweet_button" onClick={this.delete_tweet}>Delete</button>
         </div>
         <h3>{this.state.response}</h3>
       </div>

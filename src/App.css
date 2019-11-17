@@ -11,8 +11,17 @@ body {
 * {
   margin: 0;
   padding: 0;
-  clear: both;
   font-weight: bold;
+}
+
+.tweet_button {
+  margin-left: 6px;
+}
+
+.tweet_button_container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
 }
 
 .navbar_button {
@@ -121,7 +130,7 @@ button {
   width: 100px;
 }
 
-button:not(#copy_timestamp_button) {
+.submit_button {
   display: block;
   margin-left: auto;
   margin-right: auto;
