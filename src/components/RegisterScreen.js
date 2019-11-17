@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import axios from 'axios';
+import Axios from 'axios';
 
 export default class RegisterScreen extends Component {
   state = {
@@ -13,7 +13,7 @@ export default class RegisterScreen extends Component {
   password_change = e => {this.setState({password: e.target.value});};
   email_change = e => {this.setState({email: e.target.value});};
 
-  submit = e => {
+  submit = async e => {
     e.preventDefault();
 
     const json = {
@@ -22,21 +22,14 @@ export default class RegisterScreen extends Component {
       email: this.state.email
     };
 
-    axios
-      .post("http://gaillardia.cse356.compas.cs.stonybrook.edu/adduser", json)
-      .then(res => {
-        console.log('ADDUSER RESPONSE: ' + JSON.stringify(res.data, null, 2));
-
-        if (res.data.status === 'OK') {
-          this.setState({response: 'Succesfully added user!'});
-        } else {
-          this.setState({response: res.data.error}); 
-        }
-
-      })
-      .catch(err => {
-        console.log('ADDUSER ERROR: ' + err);
-      });
+    try {
+      const res = await Axios.post('http://gaillardia.cse356.compas.cs.stonybrook.edu/adduser', json);
+      console.log('ADDUSER RESPONSE: ' + JSON.stringify(res.data, null, 2));
+      if (res.data.status === 'OK') this.setState({response: 'Succesfully added user!'});
+    } catch (err) {
+      console.log('ADDUSER ERROR: ' + err);
+      this.setState({response: err.response.data.error});
+    }
   };
 
   render() {
