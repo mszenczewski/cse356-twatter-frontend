@@ -4,12 +4,10 @@ import axios from 'axios';
 export default class TweetScreen extends Component {
   state = {
     content: '',
-    childType: 'none',
     response: ''
   };
 
   content_change = e => {this.setState({content: e.target.value});};
-  childType_change = e => {this.setState({childType: e.target.value});};
 
   submit = e => {
     e.preventDefault();
@@ -17,10 +15,6 @@ export default class TweetScreen extends Component {
     const json = {
       content: this.state.content,
     };
-
-    if (this.state.childType !== 'none') {
-      json.childType = this.state.childType;
-    }
 
     axios
       .post("http://gaillardia.cse356.compas.cs.stonybrook.edu/additem", json)
@@ -53,18 +47,6 @@ export default class TweetScreen extends Component {
               value={this.state.content}
               />
           </div>
-          <div>
-            <label>Type:</label>
-            <select 
-              id="typeList" 
-              onChange={this.childType_change}
-              value={this.state.childType}
-              >
-                <option value="none"></option>
-                <option value="retweet">Retweet</option>
-                <option value="reply">Reply</option>
-            </select>
-          </div>        
         <button>Submit</button>
         </form>
         <h3>{this.state.response}</h3>
