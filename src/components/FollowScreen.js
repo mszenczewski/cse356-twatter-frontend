@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import axios from 'axios';
+import Axios from 'axios';
 
 export default class FollowScreen extends Component {
   state = {
@@ -11,7 +11,7 @@ export default class FollowScreen extends Component {
   username_change = e => {this.setState({username: e.target.value});};
   follow_change = e => {this.setState({follow: e.target.checked});};
 
-  submit = e => {
+  submit = async e => {
     e.preventDefault();
 
     const json = {
@@ -19,21 +19,17 @@ export default class FollowScreen extends Component {
       follow: this.state.follow
     };
 
-    axios
-      .post("http://gaillardia.cse356.compas.cs.stonybrook.edu/follow", json)
-      .then(res => {
-        console.log('FOLLOW RESPONSE: ' + JSON.stringify(res.data, null, 2));
-
-        if (res.data.status === 'OK') {
-          if (json.follow === true) this.setState({response: 'Succesfully followed ' + json.username + '!'});
-          if (json.follow === false) this.setState({response: 'Succesfully unfollowed ' + json.username + '!'});
-        } else {
-          this.setState({response: res.data.error}); 
-        }
-      })
-      .catch(err => {
-        console.log('FOLLOW ERROR: ' + err);
-      });
+    try {
+      const res = await Axios.post('http://gaillardia.cse356.compas.cs.stonybrook.edu/follow', json);
+      console.log('FOLLOW RESPONSE: ' + JSON.stringify(res.data, null, 2));
+      if (res.data.status === 'OK') {
+        if (json.follow === true) this.setState({response: 'Succesfully followed ' + json.username + '!'});
+        if (json.follow === false) this.setState({response: 'Succesfully unfollowed ' + json.username + '!'})
+      }
+    } catch (err) {
+      console.log('FOLLOW ERROR: ' + err);
+      this.setState({response: err.response.data.error});
+    }
   };
 
   render() {
