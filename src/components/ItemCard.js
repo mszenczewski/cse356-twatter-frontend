@@ -39,11 +39,7 @@ export default class ItemCard extends Component {
       if (t) var msg = 'liked';
       if (!t) var msg = 'unliked';
 
-      if (res.data.status === 'OK') {
-        this.props.set_response(`Succesfully ${msg} tweet!`);
-      } else {
-        this.props.set_response(res.data.error);
-      }
+      if (res.data.status === 'OK') this.props.set_response(`Succesfully ${msg} tweet!`);
     } catch (err) {
       console.log('LIKE ERROR: ' + err);
       this.props.set_response(err.response.data.error);
