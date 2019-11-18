@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import axios from 'axios';
+import Axios from 'axios';
 
 export default class TweetScreen extends Component {
   state = {
@@ -9,28 +9,19 @@ export default class TweetScreen extends Component {
 
   content_change = e => {this.setState({content: e.target.value});};
 
-  submit = e => {
+  submit = async e => {
     e.preventDefault();
 
-    const json = {
-      content: this.state.content,
-    };
+    const json = {content: this.state.content,};
 
-    axios
-      .post("http://gaillardia.cse356.compas.cs.stonybrook.edu/additem", json)
-      .then(res => {
-        console.log('ADDITEM RESPONSE: ' + JSON.stringify(res.data, null, 2));
-
-        if (res.data.status === 'OK') {
-          this.setState({response: 'Succesfully added item! ID: ' + res.data.id});
-        } else {
-          this.setState({response: res.data.error}); 
-        }
-
-      })
-      .catch(err => {
-        console.log('ADDITEM ERROR: ' + err);
-      });
+    try {
+      const res = await Axios.post('http://gaillardia.cse356.compas.cs.stonybrook.edu/additem', json);
+      console.log('ADDITEM RESPONSE: ' + JSON.stringify(res.data, null, 2));
+      if (res.data.status === 'OK') this.setState({response: 'Succesfully added item! ID: ' + res.data.id});
+    } catch (err) {
+      console.log('ADDITEM ERROR: ' + err);
+      this.setState({response: err.response.data.error});
+    }
   };
 
   render() {
