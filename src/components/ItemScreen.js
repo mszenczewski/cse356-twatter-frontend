@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import axios from 'axios';
+import Axios from 'axios';
 
 import ItemCard from './ItemCard'
 
@@ -34,7 +34,7 @@ export default class ItemScreen extends Component {
     this.setState({response: 'Tweet succesfully deleted!'});    
   }
 
-  submit = e => {
+  submit = async e => {
     e.preventDefault();
 
     if (this.state.id === '') {
@@ -43,22 +43,18 @@ export default class ItemScreen extends Component {
       return;
     }
 
-    axios
-      .get("http://gaillardia.cse356.compas.cs.stonybrook.edu/item/" + this.state.id)
-      .then(res => {
-        console.log('ITEM RESPONSE: ' + JSON.stringify(res.data, null, 2));
-        this.hide_card(); 
-        if (res.data.status === 'OK') {
-          this.setState({card_item: res.data.item});
-          this.show_card();
-        } else {
-          this.setState({response: res.data.error});
-        }
-
-      })
-      .catch(err => {
-        console.log('ITEM ERROR: ' + err);
-      });
+    try {
+      const res = await Axios.get(`http://gaillardia.cse356.compas.cs.stonybrook.edu/item/${this.state.id}`);
+      console.log('ITEM RESPONSE: ' + JSON.stringify(res.data, null, 2));
+      this.hide_card();
+      if (res.data.status === 'OK') {
+        this.setState({card_item: res.data.item});
+        this.show_card();
+      }
+    } catch (err) {
+      console.log('ITEM ERROR: ' + err);
+      this.setState({response: err.response.data.error});
+    }
   };
 
   render() {
