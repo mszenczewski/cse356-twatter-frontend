@@ -64,7 +64,7 @@ export default class RegisterScreen extends Component {
               value={this.state.email}
             />
           </div>
-          <button className="submit_button">Submit</button>
+          <button className="submit_button">Register</button>
         </form>
         <h3>{this.state.response}</h3>
       </div>

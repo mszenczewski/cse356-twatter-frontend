@@ -49,7 +49,7 @@ export default class VerifyScreen extends Component {
               value={this.state.key}
             />
           </div>
-          <button className="submit_button">Submit</button>
+          <button className="submit_button">Verify</button>
         </form>
         <h3>{this.state.response}</h3>
       </div>

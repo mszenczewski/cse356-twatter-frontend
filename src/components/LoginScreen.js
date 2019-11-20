@@ -49,7 +49,7 @@ export default class LoginScreen extends Component {
               value={this.state.password}
             />
           </div>
-          <button className="submit_button">Submit</button>
+          <button className="submit_button">Login</button>
         </form>
         <h3>{this.state.response}</h3>
       </div>
