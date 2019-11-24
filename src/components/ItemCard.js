@@ -36,10 +36,11 @@ export default class ItemCard extends Component {
       const res = await Axios.post(`http://gaillardia.cse356.compas.cs.stonybrook.edu/item/${this.props.item.id}/like`, {like: t});
       console.log('LIKE RESPONSE: ' + JSON.stringify(res.data, null, 2));
 
+      var msg;
       if (t) {
-        var msg = 'liked';
+        msg = 'liked';
       } else {
-        var msg = 'unliked';
+        msg = 'unliked';
       }
 
       if (res.data.status === 'OK') this.props.set_response(`Succesfully ${msg} tweet!`);
